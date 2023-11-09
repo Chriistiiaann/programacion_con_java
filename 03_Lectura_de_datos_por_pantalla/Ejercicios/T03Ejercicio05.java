@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejercicio5 {
+public class T03Ejercicio05 {
     public static void main(String[] args) {
         
         double base;

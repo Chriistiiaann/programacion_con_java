@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejercicio4 {
+public class T03Ejercicio04 {
     public static void main(String[] args) {
         
         double x;
