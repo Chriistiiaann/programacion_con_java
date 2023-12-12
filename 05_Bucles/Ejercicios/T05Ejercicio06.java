@@ -7,10 +7,10 @@
  */
 public class T05Ejercicio06 {
   public static void main(String[] args) {
-    int i = 340;
+    int i = 320;
     do {
-      i -= 20;
       System.out.println(i);
-    } while (i >=180);
+      i -= 20;
+    } while (i >=160);
   }
 }

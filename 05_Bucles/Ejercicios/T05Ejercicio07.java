@@ -14,6 +14,7 @@ public class T05Ejercicio07 {
     int contraseña = 6666;
     int contraseñaIntroducida;
     int intentos = 1;
+    int i = 4;
     
     System.out.println("¡Bienvenid@ a la caja fuerte de Houdini!");
     System.out.println("Para poder abrirla necesitarás introducir la contraseña de cuatro dígitos correcta");
@@ -27,13 +28,16 @@ public class T05Ejercicio07 {
       if (contraseña != contraseñaIntroducida) {
         intentos ++;
         if (intentos <= 4) {
-          System.out.println("¡Sigue Intentándolo! Te quedan" + intentos + " intentos");
+          i --;
+          System.out.println("¡Sigue Intentándolo! Te quedan " + i + " intentos");
         } else if (intentos >= 4) {
           System.out.println("¡Te has quedado sin intentos!");
         }
-      } else if (contraseña == contraseñaIntroducida) {
-        intentos = 5;
+      } 
+      
+      if (contraseña == contraseñaIntroducida) {
         System.out.println("La caja fuerte se ha abierto satisfactoriamente");
+        break;
       }
     } while (intentos <= 4);
     sc.close();
