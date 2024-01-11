@@ -95,4 +95,37 @@ public class Varias {
     } while (esPrimo(x) == false);
     return x;
   }
+
+  public static int digitoN(long x, int n) {
+    x = voltear(x);
+    while (n-- > 0) {
+    x = x / 10;
+    }
+    return (int)x % 10;
+  }
+
+  public static int posicionDeDigito(int x, int d) {
+    int i;
+
+    for (i = 0; (i < digitos(x)) && (digitoN(x, i) != d); i++);
+
+    if (i == digitos(x)) {
+      return -1;
+    } else {
+      return i;
+    }
+  }
+
+  public static double potencia(double b, double e){
+    return Math.pow(e, b);
+  }
+
+  public static double quitarPorDetras(double x, double y){
+    for (int i = 0; i < x; i++) {
+      y /= 10 ;
+    }
+    return y;
+  }
+    
+    
 }
