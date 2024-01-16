@@ -8,17 +8,18 @@
  */
 public class T07Ejercicio_05_bidim {
   public static void main(String[] args) {
+
     int[][] tabla = new int[6][10];
     int fila;
     int columna;
 
     int minimo = Integer.MAX_VALUE;
-    int filaMinimo;
-    int columnaMinimo;
+    int filaMinimo = 0;
+    int columnaMinimo = 0;
 
     int maximo = Integer.MIN_VALUE;
-    int filaMaximo;
-    int columnaMaximo;
+    int filaMaximo = 0;
+    int columnaMaximo = 0;
 
     //Rellenar el Array
     for (fila = 0; fila < tabla.length; fila++) {
