@@ -10,6 +10,6 @@ public class Libro {
   String titulo;
   String autor;
   int numeroPaginas;
-  private int edicion = 1;
+  int edicion = 1;
 
 }
