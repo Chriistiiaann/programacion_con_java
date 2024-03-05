@@ -42,13 +42,38 @@ public class Baraja {
     for (int i = 0; i < cartas.length; i++) { // Támbien podemos poner hasta numCartas, es lo mismo
       System.out.printf("%-20s Puntuación: %.1f\n",cartas[i].toString(), cartas[i].getPuntos());
     }
+    
   }
-  public static void main(String[] args) {
-    Baraja barajaEsp = new Baraja();
-    barajaEsp.inicializaBaraja();
-    barajaEsp.mostrarBaraja();
+  
+  public void barajar(){
+    int posAleatoria = 0;
+    Carta c;
+    for (int i = 0; i < cartas.length; i++) {
+
+      posAleatoria = (int) (Math.random() * 40);
+
+      //intercambio
+      c = cartas[i];
+      cartas[i] = cartas[posAleatoria];
+      cartas[posAleatoria] = c; 
+    }
+    
   }
 
+  public void eliminarJugada(){
+    System.out.printf("%-20s Puntuación: %.1f\n",cartas[0].toString(), cartas[0].getPuntos());
+    Carta temp = cartas[0]; // Guardar el primer elemento en una variable temporal
+    for (int i = 0; i < cartas.length - 1; i++) {
+        cartas[i] = cartas[i + 1]; // Mover cada elemento una posición hacia la izquierda
+    }
+    cartas[cartas.length - 1] = temp; // Colocar el primer elemento en la última posición
+    
+  }
+
+  
+  public Carta sacarCarta(){
+    return cartas[0];
+  }
 
 
 }
