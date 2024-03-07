@@ -49,6 +49,7 @@ public class Juego_Siete_y_media {
             
             boolean plantarse = false;
             String continuarJugando;
+
             do { 
                 System.out.println("\n¿ Desea sacar otra carta ? (si/no)");
                 continuarJugando = System.console().readLine();
@@ -61,12 +62,16 @@ public class Juego_Siete_y_media {
                     puntuacion += cartaJugador.getPuntos();
                     System.out.println("Total de puntos acumulados en esta ronda: " + puntuacion);
                     i++;
-                    
+                    if (puntuacion==7.5) {
+                        System.out.println("Has ganado clavao, que suerte!!");
+                        break;
+                    }
+
                 } else if (continuarJugando.equals("no")) {
                     System.out.println("");
     
                     //Banca
-                    if ((puntuacion <= 7.5)) {
+                    if ((puntuacion <= 7.5 )) {
                             
                             cartaBanca = barajaEsp.sacarCarta();
                             barajaEsp.eliminarJugada();
@@ -81,7 +86,7 @@ public class Juego_Siete_y_media {
                             puntuacionBanca += cartaJugador.getPuntos();
                             System.out.println("La banca tiene: " + puntuacionBanca);
                             i++;
-                        } while ((puntuacionBanca < 7.5));
+                        } while ((puntuacionBanca < 7.5 && puntuacion > puntuacionBanca));
     
                         if (puntuacionBanca > 7.5) {
                             System.out.println("Has ganado!!!");
@@ -116,22 +121,26 @@ public class Juego_Siete_y_media {
             }   
 
             String volverJugar;
-            if (jugador.getSaldo() > 0) {
+            if (jugador.getSaldo() >= 0) {
                 do {
                     System.out.println("¿Quieres seguir jugando? (si/no)");
                     volverJugar = System.console().readLine();
                     
                     if (volverJugar.equals("si")) {
-                        seguirJugando = false;
-                    } else if (volverJugar.equals("no")) {
                         seguirJugando = true;
+                    } else if (volverJugar.equals("no")) {
+                        seguirJugando = false;
                         
                     }
                 } while (!(volverJugar.equals("si")) && !(volverJugar.equals("no")));
             } else {
                 System.out.println("No puedes volver a jugar, la próxima juega con cabeza cabeza alcornoque.");
             }
-   
-    } while ((jugador.getSaldo() > 0) && !seguirJugando);       
+            
+            if (seguirJugando==false) {
+                System.out.println("Adios vuelve cuando quieras!!!");
+            }
+            
+    } while ((jugador.getSaldo() > 0) && seguirJugando == true);       
     }
 }
