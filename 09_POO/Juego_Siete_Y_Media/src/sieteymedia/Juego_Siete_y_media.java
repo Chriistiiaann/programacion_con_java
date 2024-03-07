@@ -124,7 +124,7 @@ public class Juego_Siete_y_media {
                     if (volverJugar.equals("si")) {
                         seguirJugando = false;
                     } else if (volverJugar.equals("no")) {
-                        seguirJugando = false;
+                        seguirJugando = true;
                         
                     }
                 } while (!(volverJugar.equals("si")) && !(volverJugar.equals("no")));
@@ -132,6 +132,6 @@ public class Juego_Siete_y_media {
                 System.out.println("No puedes volver a jugar, la próxima juega con cabeza cabeza alcornoque.");
             }
    
-    } while ((jugador.getSaldo() > 0) || !seguirJugando);       
+    } while ((jugador.getSaldo() > 0) && !seguirJugando);       
     }
 }
